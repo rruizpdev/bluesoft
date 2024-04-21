@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Bluesoft.Bank.Data.Contexts;
 
+//dotnet ef migrations add InitDatabase --project Bluesoft.Bank.Data --startup-project Bluesoft.Bank.API --context BluesoftBankContext
 public class BluesoftBankContext 
     : DbContext
 {
@@ -27,6 +28,7 @@ public class BluesoftBankContext
                 .HasKey(e => e.Id)
                 .HasName("PK_Account");
 
+            entity.Property(e => e.Number).HasColumnType("varchar(20)");
             entity.Property(e => e.Balance).HasColumnType("money");
             entity.Property(e => e.CreatedOn).HasColumnType("datetime");
 
@@ -61,6 +63,36 @@ public class BluesoftBankContext
                 .HasForeignKey(movement => movement.BranchId)
                 .OnDelete(DeleteBehavior.NoAction)
                 .HasConstraintName("FK_AccountMovement_Branch");
+        });
+
+        modelBuilder.Entity<Address>(entity =>
+        {
+            entity.ToTable("Address")
+                .HasKey(e => e.Id)
+                .HasName("PK_Address");
+
+            entity.Property(e => e.Street1).HasColumnType("varchar(200)");
+            entity.Property(e => e.State).HasColumnType("varchar(40)");
+            entity.Property(e => e.City).HasColumnType("varchar(80)");
+            entity.Property(e => e.ZipCode).HasColumnType("varchar(15)");
+        });
+
+        modelBuilder.Entity<Branch>(entity =>
+        {
+            entity.ToTable("Branch")
+                .HasKey(e => e.Id)
+                .HasName("PK_Branch");
+
+            entity.Property(e => e.Name).HasColumnType("varchar(200)");
+        });
+
+        modelBuilder.Entity<Client>(entity =>
+        {
+            entity.ToTable("Client")
+                .HasKey(e => e.Id)
+                .HasName("PK_Client");
+
+            entity.Property(e => e.Name).HasColumnType("varchar(200)");
         });
     }
 }

@@ -1,4 +1,14 @@
+using Bluesoft.Bank.Data.Contexts;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+var secrets = new ConfigurationBuilder()
+    .AddUserSecrets<Program>()
+    .Build();
+
+builder.Services.AddDbContext<BluesoftBankContext>(options
+    => options.UseSqlServer("name=ConnectionStrings:BluesoftData"));
 
 // Add services to the container.
 
