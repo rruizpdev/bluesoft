@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Bluesoft.Bank.Data.Contexts;
 
-//dotnet ef migrations add InitDatabase --project Bluesoft.Bank.Data --startup-project Bluesoft.Bank.API --context BluesoftBankContext
 public class BluesoftBankContext 
     : DbContext
 {

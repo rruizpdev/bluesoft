@@ -3,7 +3,7 @@ using RCRP.Common.DataAccess.Repositories.Contracts;
 
 namespace Bluesoft.Bank.Data.Repositories.Contracts;
 
-public interface IAccountRespository
-    : IRepository<Account>
+public interface IAddressRepository
+    : IRepository<Address>
 {
 }

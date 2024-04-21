@@ -6,11 +6,11 @@ using System.Linq.Expressions;
 
 namespace Bluesoft.Bank.Data.Repositories;
 
-public class AccountRespository
+public class AccountRepository
     : RepositoryBase<Account>
-    , IAccountRespository
+    , IAccountRepository
 {
-    public AccountRespository(BluesoftBankContext dbContext)
+    public AccountRepository(BluesoftBankContext dbContext)
         : base(dbContext, dbContext.Set<Account>())
     {
     }
