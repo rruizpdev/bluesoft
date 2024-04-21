@@ -5,6 +5,16 @@ VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bluesoft.Bank.API", "Bluesoft.Bank.API\Bluesoft.Bank.API.csproj", "{45DC7B40-C96E-44D6-82EA-A469E15E15AB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bluesoft.Bank.Models", "Bluesoft.Bank.Models\Bluesoft.Bank.Models.csproj", "{47012422-AD19-4F42-8BC7-326084F354DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bluesoft.Bak.Services", "Bluesoft.Bak.Services\Bluesoft.Bak.Services.csproj", "{1EF5AE80-F7A9-4506-BE02-BF6775B80E9C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bluesoft.Bank.Data", "Bluesoft.Bank.Data\Bluesoft.Bank.Data.csproj", "{11045325-207F-4D8B-AA4B-7CEC88314074}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RCRP.Common.DataAccess", "..\RCRP.Common.DataAccess\RCRP.Common.DataAccess.csproj", "{259CB1F0-E459-467D-89AD-0AAE951919C9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RCRP.Common", "..\RCRP.Common\RCRP.Common.csproj", "{77903F94-5741-4D51-A111-0EB572FEA1C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +25,26 @@ Global
 		{45DC7B40-C96E-44D6-82EA-A469E15E15AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45DC7B40-C96E-44D6-82EA-A469E15E15AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45DC7B40-C96E-44D6-82EA-A469E15E15AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47012422-AD19-4F42-8BC7-326084F354DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47012422-AD19-4F42-8BC7-326084F354DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47012422-AD19-4F42-8BC7-326084F354DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47012422-AD19-4F42-8BC7-326084F354DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EF5AE80-F7A9-4506-BE02-BF6775B80E9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EF5AE80-F7A9-4506-BE02-BF6775B80E9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EF5AE80-F7A9-4506-BE02-BF6775B80E9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EF5AE80-F7A9-4506-BE02-BF6775B80E9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11045325-207F-4D8B-AA4B-7CEC88314074}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11045325-207F-4D8B-AA4B-7CEC88314074}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11045325-207F-4D8B-AA4B-7CEC88314074}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11045325-207F-4D8B-AA4B-7CEC88314074}.Release|Any CPU.Build.0 = Release|Any CPU
+		{259CB1F0-E459-467D-89AD-0AAE951919C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{259CB1F0-E459-467D-89AD-0AAE951919C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{259CB1F0-E459-467D-89AD-0AAE951919C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{259CB1F0-E459-467D-89AD-0AAE951919C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77903F94-5741-4D51-A111-0EB572FEA1C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77903F94-5741-4D51-A111-0EB572FEA1C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77903F94-5741-4D51-A111-0EB572FEA1C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77903F94-5741-4D51-A111-0EB572FEA1C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
