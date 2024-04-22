@@ -17,9 +17,9 @@ namespace Bluesoft.Bank.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Street1 = table.Column<string>(type: "varchar(200)", nullable: true),
-                    State = table.Column<string>(type: "varchar(40)", nullable: true),
-                    City = table.Column<string>(type: "varchar(80)", nullable: true),
+                    Street1 = table.Column<string>(type: "varchar(200)", nullable: false),
+                    State = table.Column<string>(type: "varchar(40)", nullable: false),
+                    City = table.Column<string>(type: "varchar(80)", nullable: false),
                     ZipCode = table.Column<string>(type: "varchar(15)", nullable: true)
                 },
                 constraints: table =>
@@ -33,7 +33,7 @@ namespace Bluesoft.Bank.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "varchar(200)", nullable: true),
+                    Name = table.Column<string>(type: "varchar(200)", nullable: false),
                     AddressId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -53,7 +53,7 @@ namespace Bluesoft.Bank.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "varchar(200)", nullable: true),
+                    Name = table.Column<string>(type: "varchar(200)", nullable: false),
                     Type = table.Column<int>(type: "int", nullable: false),
                     AddressId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -74,7 +74,7 @@ namespace Bluesoft.Bank.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Number = table.Column<string>(type: "varchar(20)", nullable: true),
+                    Number = table.Column<string>(type: "varchar(20)", nullable: false),
                     BranchId = table.Column<int>(type: "int", nullable: false),
                     ClientId = table.Column<int>(type: "int", nullable: false),
                     Active = table.Column<bool>(type: "bit", nullable: false),

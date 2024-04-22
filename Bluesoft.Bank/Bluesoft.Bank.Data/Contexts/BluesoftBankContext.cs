@@ -27,9 +27,15 @@ public class BluesoftBankContext
                 .HasKey(e => e.Id)
                 .HasName("PK_Account");
 
-            entity.Property(e => e.Number).HasColumnType("varchar(20)");
-            entity.Property(e => e.Balance).HasColumnType("money");
-            entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+            entity.Property(e => e.Number)
+                .HasColumnType("varchar(20)")
+                .IsRequired();
+            entity.Property(e => e.Balance)
+                .HasColumnType("money")
+                .IsRequired();
+            entity.Property(e => e.CreatedOn)
+                .HasColumnType("datetime")
+                .IsRequired();
 
             entity.HasOne(account => account.Client).WithMany()
                 .HasForeignKey(account => account.ClientId)
@@ -48,8 +54,17 @@ public class BluesoftBankContext
                 .HasKey(e => e.Id)
                 .HasName("PK_AccountMovement");
 
-            entity.Property(e => e.Amount).HasColumnType("money");
-            entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+            entity.Property(e => e.Type)
+                .IsRequired();
+            entity.Property(e => e.TransactionCode)
+                .IsRequired();
+
+            entity.Property(e => e.Amount)
+                .HasColumnType("money")
+                .IsRequired();
+            entity.Property(e => e.CreatedOn)
+                .HasColumnType("datetime")
+                .IsRequired();
 
             entity.HasOne(movement => movement.Account)
                 .WithMany(a => a.Movements)
@@ -70,6 +85,13 @@ public class BluesoftBankContext
                 .HasKey(e => e.Id)
                 .HasName("PK_Address");
 
+            entity.Property(e => e.Street1)
+                .IsRequired();
+            entity.Property(e => e.State)
+                .IsRequired();
+            entity.Property(e => e.City)
+                .IsRequired();
+
             entity.Property(e => e.Street1).HasColumnType("varchar(200)");
             entity.Property(e => e.State).HasColumnType("varchar(40)");
             entity.Property(e => e.City).HasColumnType("varchar(80)");
@@ -82,6 +104,9 @@ public class BluesoftBankContext
                 .HasKey(e => e.Id)
                 .HasName("PK_Branch");
 
+            entity.Property(e => e.Name)
+                .IsRequired();
+
             entity.Property(e => e.Name).HasColumnType("varchar(200)");
         });
 
@@ -90,6 +115,11 @@ public class BluesoftBankContext
             entity.ToTable("Client")
                 .HasKey(e => e.Id)
                 .HasName("PK_Client");
+
+            entity.Property(e => e.Name)
+                .IsRequired();
+            entity.Property(e => e.Type)
+                .IsRequired();
 
             entity.Property(e => e.Name).HasColumnType("varchar(200)");
         });

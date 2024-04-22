@@ -49,6 +49,7 @@ namespace Bluesoft.Bank.Data.Migrations
                         .HasColumnType("datetime");
 
                     b.Property<string>("Number")
+                        .IsRequired()
                         .HasColumnType("varchar(20)");
 
                     b.Property<int>("Type")
@@ -109,12 +110,15 @@ namespace Bluesoft.Bank.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("City")
+                        .IsRequired()
                         .HasColumnType("varchar(80)");
 
                     b.Property<string>("State")
+                        .IsRequired()
                         .HasColumnType("varchar(40)");
 
                     b.Property<string>("Street1")
+                        .IsRequired()
                         .HasColumnType("varchar(200)");
 
                     b.Property<string>("ZipCode")
@@ -138,6 +142,7 @@ namespace Bluesoft.Bank.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("varchar(200)");
 
                     b.HasKey("Id")
@@ -160,6 +165,7 @@ namespace Bluesoft.Bank.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("varchar(200)");
 
                     b.Property<int>("Type")

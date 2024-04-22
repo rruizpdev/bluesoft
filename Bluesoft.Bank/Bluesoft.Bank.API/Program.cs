@@ -1,5 +1,6 @@
 using Bluesoft.Bank.Data.Contexts;
 using Microsoft.EntityFrameworkCore;
+using Bluesoft.Bank.Services.IoC;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +12,7 @@ builder.Services.AddDbContext<BluesoftBankContext>(options
     => options.UseSqlServer("name=ConnectionStrings:BluesoftData"));
 
 // Add services to the container.
-
+builder.Services.RegisterServices();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
