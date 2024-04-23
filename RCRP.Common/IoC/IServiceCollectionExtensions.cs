@@ -3,7 +3,7 @@ using System.Reflection;
 
 # nullable disable
 
-namespace JCFlock.Common.IoC;
+namespace RCRP.Common.IoC;
 
 public static class IServiceCollectionExtensions
 {

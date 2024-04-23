@@ -1,4 +1,4 @@
-﻿namespace JCFlock.Common.IoC;
+﻿namespace RCRP.Common.IoC;
 
 public enum ServiceType
 {
