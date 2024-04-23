@@ -5,6 +5,7 @@ using RCRP.Common.DataAccess.Repositories;
 using System.Linq.Expressions;
 
 namespace Bluesoft.Bank.Data.Repositories;
+#nullable disable
 
 public class AccountRepository
     : RepositoryBase<Account>
@@ -18,4 +19,6 @@ public class AccountRepository
     protected override Expression<Func<Account,bool>> FilterByKeyPredicate(
         params object[] keyValues)
          => t => t.Id == (int)keyValues[0];
+
+    
 }

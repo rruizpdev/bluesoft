@@ -9,7 +9,7 @@ public class Client
     public string Name { get; set; } = string.Empty;
     public ClientType  Type { get; set; }
     public int AddressId { get; set; }
-    
+
     public Address Address { get; set; }
 
     public ICollection<Account> Accounts = new HashSet<Account>();

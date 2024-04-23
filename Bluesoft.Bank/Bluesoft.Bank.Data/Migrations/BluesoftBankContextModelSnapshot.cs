@@ -62,6 +62,10 @@ namespace Bluesoft.Bank.Data.Migrations
 
                     b.HasIndex("ClientId");
 
+                    b.HasIndex("Number")
+                        .IsUnique()
+                        .HasDatabaseName("UIX_AccountNumber");
+
                     b.ToTable("Account", (string)null);
                 });
 
@@ -109,13 +113,8 @@ namespace Bluesoft.Bank.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("City")
-                        .IsRequired()
-                        .HasColumnType("varchar(80)");
-
-                    b.Property<string>("State")
-                        .IsRequired()
-                        .HasColumnType("varchar(40)");
+                    b.Property<int>("CityId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Street1")
                         .IsRequired()
@@ -126,6 +125,8 @@ namespace Bluesoft.Bank.Data.Migrations
 
                     b.HasKey("Id")
                         .HasName("PK_Address");
+
+                    b.HasIndex("CityId");
 
                     b.ToTable("Address", (string)null);
                 });
@@ -153,6 +154,29 @@ namespace Bluesoft.Bank.Data.Migrations
                     b.ToTable("Branch", (string)null);
                 });
 
+            modelBuilder.Entity("Bluesoft.Bank.Data.Entities.City", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<int>("StateId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id")
+                        .HasName("PK_City");
+
+                    b.HasIndex("StateId");
+
+                    b.ToTable("City", (string)null);
+                });
+
             modelBuilder.Entity("Bluesoft.Bank.Data.Entities.Client", b =>
                 {
                     b.Property<int>("Id")
@@ -177,6 +201,24 @@ namespace Bluesoft.Bank.Data.Migrations
                     b.HasIndex("AddressId");
 
                     b.ToTable("Client", (string)null);
+                });
+
+            modelBuilder.Entity("Bluesoft.Bank.Data.Entities.State", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("varchar(30)");
+
+                    b.HasKey("Id")
+                        .HasName("PK_State");
+
+                    b.ToTable("State", (string)null);
                 });
 
             modelBuilder.Entity("Bluesoft.Bank.Data.Entities.Account", b =>
@@ -221,6 +263,18 @@ namespace Bluesoft.Bank.Data.Migrations
                     b.Navigation("Branch");
                 });
 
+            modelBuilder.Entity("Bluesoft.Bank.Data.Entities.Address", b =>
+                {
+                    b.HasOne("Bluesoft.Bank.Data.Entities.City", "City")
+                        .WithMany()
+                        .HasForeignKey("CityId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_Address_City");
+
+                    b.Navigation("City");
+                });
+
             modelBuilder.Entity("Bluesoft.Bank.Data.Entities.Branch", b =>
                 {
                     b.HasOne("Bluesoft.Bank.Data.Entities.Address", "Address")
@@ -230,6 +284,18 @@ namespace Bluesoft.Bank.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Address");
+                });
+
+            modelBuilder.Entity("Bluesoft.Bank.Data.Entities.City", b =>
+                {
+                    b.HasOne("Bluesoft.Bank.Data.Entities.State", "State")
+                        .WithMany()
+                        .HasForeignKey("StateId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired()
+                        .HasConstraintName("FK_City_State");
+
+                    b.Navigation("State");
                 });
 
             modelBuilder.Entity("Bluesoft.Bank.Data.Entities.Client", b =>
