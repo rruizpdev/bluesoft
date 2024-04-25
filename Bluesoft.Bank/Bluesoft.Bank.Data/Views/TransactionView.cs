@@ -1,4 +1,6 @@
-﻿namespace Bluesoft.Bank.Data.Views;
+﻿using Bluesoft.Bank.Data.Enums;
+
+namespace Bluesoft.Bank.Data.Views;
 #nullable disable
 public class TransactionView
 {
@@ -9,7 +11,7 @@ public class TransactionView
     public int AccountId { get; set; }
     public string AccountNumber { get; set; }
     public Guid TransactionCode { get; set; }
-    public int TransactionTypeId { get; set; }
+    public AccountMovementType TransactionTypeId { get; set; }
     public string TransactionType { get; set; }
     public DateTime TransactionDate { get; set; }
     public decimal Amount { get; set; }

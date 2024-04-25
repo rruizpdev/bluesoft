@@ -4,5 +4,7 @@ namespace Bluesoft.Bank.Services.Contracts;
 
 public interface IAccountMovementService
 {
-    Task<IEnumerable<ClientTransactionsCount>> GetClientMonthTransactionsCountAsync(int month, int year);
+    Task<IEnumerable<ClientTransactionsCount>> GetClientMonthTransactionsCountAsync(
+        int month,
+        int year);
 }
